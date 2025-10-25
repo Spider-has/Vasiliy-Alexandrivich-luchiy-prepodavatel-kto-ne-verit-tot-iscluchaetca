@@ -36,15 +36,15 @@ int main() {
 
   size_t count = 0;
 
-  while (std::cin >> a) {
-    try {
+  try {
+    while (std::cin >> a) {
       count += isPyth(a, b, c) ? 1 : 0;
       c = b;
       b = a;
-    } catch (const std::overflow_error &e) {
-      std::cerr << "Overflow: " << e.what() << "\n";
-      return 2;
     }
+  } catch (const std::overflow_error &e) {
+    std::cerr << "Overflow: " << e.what() << "\n";
+    return 2;
   }
 
   if (std::cin.eof()) {
